@@ -1,0 +1,41 @@
+Code explanation:
+The complete C program and demonstration Video for this project is given at the end of this project. The code is split into small meaningful chunks and explained below.
+
+For L293D interfacing with 8051 microcontrollers, we have to define pins on which L293D is connected to 8051 microcontroller. In1 pin of motor 1 is connected to P2.0, In2 pin of motor 1 is connected to P2.1, In1 pin of motor 2 is connected to P2.2, In2 pin of motor 2 is connected to P2.3
+
+sbit m1f=P2^0;             // in1 pin of motor1
+sbit m1b=P2^1;             // in2 pin of motor1
+sbit m2f=P2^2;             // in1 pin of motor2
+sbit m2b=P2^3;             // in2 pin of motor2
+Next we have to define some functions which are used in the program. Delay function is used to create specified time delay. Txdata function is used to transmit data through serial port . Rxdata function is used to receive data from serial port.
+
+void delay(unsigned int)  ;             //function for creating delay
+char rxdata(void);                           //function for receiving a character through serial port of 8051
+void txdata(unsigned char);        //function for sending a character through serial port of 8051
+
+In this part of the code we are going to configure 8051 microcontroller for serial communication. TMOD register is loaded with 0x20 for timer 1, mode 2 (auto reload). SCON register is loaded with 0x50 for 8 data bits, 1 stop bit and receive enabled. TH1 register is loaded with 0xfd for baud rate of 9600 bits per second. TR1=1 is used to start the timer.
+
+  TMOD=0x20; 
+   SCON=0x50; 
+   TH1=0xfd; 
+   TR1=1;        
+
+In this part of the code, the returned character of rxdata function is stored in the variable ‘s’ for further use.
+s=rxdata();                          //receive serial data from hc-05 bluetooth module
+In this part of the code, we have to compare the received character with preassigned characters for different directions. If the received character is ‘f ‘, then the robot has to move in forward direction. This is accomplished by making m1f, m2f pins high and m1b, m2b pins low. Once this is done, next we have to send status of robot to android app. This is done with the help of txdata function. The same process is repeated for different characters received and decision is taken accordingly. Table 1 shows different values of m1f, m1b, m2f, m2b for different directions of movement of robot.
+
+if(s=='f')               //move both the motors in forward direction
+ {
+      m1f=1;
+      delay(1);
+      m1b=0;
+      delay(1);
+      m2f=1;
+      delay(1);
+      m2b=0;
+      delay(1);
+      for(i=0;msg1[i]!='\0';i++)          //send status of robot to android app through bluetooth
+     {
+         txdata(msg1[i]);
+     }
+ }

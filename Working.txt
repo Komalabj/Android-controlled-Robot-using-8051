@@ -1,0 +1,13 @@
+Working of Android Phone Controlled Robot:
+In this Smart Phone controlled Robot, the user of android app sends the data to 8051 microcontroller through HC-05 module. The received data is compared in 8051 microcontroller and the decision is made accordingly. The below table shows the direction of motors and status of robot for different received characters.
+The Bluetooth terminal app allows us to emulate a Bluetooth terminal. This app supports bidirectional communication and this app is compatible with most of the devices.
+
+The steps below show how to install and use this app.
+
+1. Download and install Bluetooth terminal app on your android phone. The app can be downloaded from the below link.
+
+https://play.google.com/store/apps/details?id=ptah.apps.bluetoothterminal
+
+2. After installing the app, open the app and turn on Bluetooth.
+
+3. Select the device and click on connect option. After successful connection, we  can start sending data to HC-05 module.

@@ -1,0 +1,20 @@
+8051 Microcontroller:
+8051 microcontroller is a 8-bit microcontroller which has 128 bytes of on chip RAM, 4K bytes of on chip ROM, two timers, one serial port and four 8bit ports. 8052 microcontroller is an extension of 8051 microcontroller. In this project we are using AT89S52 microcontroller. The table below shows the comparison of 8051 family members.
+
+
+HC-05 Bluetooth Module
+HC-05 is a serial Bluetooth module. It can be configured using AT commands. It can work in three different configurations (Master, Slave, Loop back). In our project we will be using it as a slave. The features of HC-05 module includes,
+
+Typical -80dBm sensitivity.
+Default baud rate: 9600bps , 8 data bits , 1 stop bit , no parity.
+Auto-pairing pin code: “1234” default pin code
+It has 6 pins.
+Vcc and Gnd pins are used for powering the HC-05.
+Tx and Rx pins are used for communicating with the microcontroller.
+Enable pin for activating the HC-05 module. when it is low , the module is disabled
+State pin acts status indicator. When it is not paired/connected with any other Bluetooth device, LED flashes continuously. When it is connected/paired with any other Bluetooth device, then the LED flashes with the constant delay of 2 seconds.
+
+
+L293D Motor Driver IC:
+L293D is a dual H-bridge motor driver IC. This acts as a current amplifier, the output of L293D drives the DC Motors. It contains two inbuilt H-bridge circuits. In common mode of operation , it can drive two dc motors simultaneously in both the directions. The below table shows the pin description of L293D IC. 
+

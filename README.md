@@ -1,0 +1,2 @@
+# Android-controlled-Robot-using-8051
+Android Phone controlled robot using 8051 microcontrollers and Bluetooth module. The robot is designed using DC motors and the direction of DC motors will be controlled by the commands received from the android application. The status of the robot is sent back to the Android app. This project will also help for interfacing of HC-05 Bluetooth module with 8051 microcontrollers
